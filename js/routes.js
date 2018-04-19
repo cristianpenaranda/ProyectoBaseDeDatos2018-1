@@ -2,22 +2,25 @@ var route = angular.module('panaderia', ['ngRoute'])
 
 route.config(['$routeProvider', function($routeProvider){
 	$routeProvider
-		.when('/' ,{
-			templateUrl: 'inicio.html'
+		.when('/vista/inicio' ,{
+			templateUrl: 'vista/inicio.html'
 		})
-		.when('/panaderia' ,{
-			templateUrl: 'panaderia.html'
+		.when('/vista/panaderia' ,{
+			templateUrl: 'vista/panaderia.html'
 		})
-		.when('/reposteria' ,{
-			templateUrl: 'reposteria.html'
+		.when('/vista/reposteria' ,{
+			templateUrl: 'vista/reposteria.html'
 		})
-		.when('/contacto' ,{
-			templateUrl: 'contacto.html'
+		.when('/vista/contacto' ,{
+			templateUrl: 'vista/contacto.html'
 		})
-		.when('/cuenta' ,{
-			templateUrl: 'cuenta.html'
+		.when('/vista/cuenta' ,{
+			templateUrl: 'vista/cuenta.html'
+		})
+		.when('/recuperarClave' ,{
+			templateUrl: 'vista/cuenta.html'
 		})
 		.otherwise({
-			redirectTo: '/'
+			redirectTo: '/vista/inicio'
 		});
 }]);

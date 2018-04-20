@@ -42,6 +42,27 @@
     box-shadow: 6px 6px 6px rgba(252,83,2,.9);
 }   
 
+.sign h3{
+    text-align: center;
+}
+
+.sign img{
+    width: 20%;
+    margin-left: 10%;
+}
+
+.sign p{
+    text-align: center;
+}
+
+.col-lg-6 img{
+    width: 90%;
+}
+
+.col-lg-6 img:hover{
+    box-shadow: 10px 10px 10px 10px rgba(252,83,2,.9);
+}
+
 /**CAMBIO DE ESTILOS AL INPUT DEL CORREO**/
 .email:focus:invalid{
     border: 2px solid red;
@@ -81,6 +102,13 @@ nav a{
     color: white;
 }
 
+nav a:hover{
+    background-color: rgba(83,44,26,.95);
+    color: white;
+    border-radius: 0px 15px 0px 15px;
+    box-shadow: 6px 6px 6px white;
+}
+
 .span{
     font-size: 1.5em;
     color: white;
@@ -107,13 +135,6 @@ nav a{
 .flechaSubir:hover{ 
     background-color: rgba(252,83,2,.9);
     box-shadow: 6px 6px 6px rgba(83,44,26,.95);
-}
-
-nav a:hover{
-    background-color: rgba(83,44,26,.95);
-    color: white;
-    border-radius: 0px 15px 0px 15px;
-    box-shadow: 6px 6px 6px white;
 }
 
 

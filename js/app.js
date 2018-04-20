@@ -10,7 +10,7 @@ app.controller('cuentaControlador',['$scope','$http', function($scope,$http){
         var cedula = this.inputData.cedula;
         var clave = this.inputData.clave;
         var encodedString = 'cedula=' + encodeURIComponent(cedula) +
-                            '&clave=' + encodeURIComponent(this.inputData.clave);
+                            '&clave=' + encodeURIComponent(clave);
 
             $http({
                 method: 'POST',
@@ -34,7 +34,7 @@ app.controller('cuentaControlador',['$scope','$http', function($scope,$http){
 }]);
 
 app.controller('recuperarContraseña',['$scope','$http', function($scope,$http){
-      this.authForm = function (){
+      this.recuperar = function (){
         var cedula = this.inputData.cedula;
         var correo = this.inputData.correo;
         var encodedString = 'cedula=' + encodeURIComponent(cedula) +

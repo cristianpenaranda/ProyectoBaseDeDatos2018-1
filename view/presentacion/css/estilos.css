@@ -283,6 +283,40 @@ footer .copyright{
     float: left;
 }
 
+.productosCompra{
+    background: #FFE2DE;
+    padding: 1%; 
+    margin: 1%; 
+    border: 2px solid rgba(252,83,2,.9);
+    border-radius: 15px 15px 15px 15px;
+    list-style: none;
+}
+
+.productos{
+    background: #FFE2DE;
+    padding: 2%; 
+    margin: 2%; 
+    margin-left: 4%;
+    border: 2px solid rgba(252,83,2,.9);
+    border-radius: 15px 45px 15px 45px;
+    box-shadow: 6px 6px 6px rgba(252,83,2,.9);
+}
+
+.productos #nombrePro{
+    text-align: center;
+    font-size: 20px;
+}
+
+.productos p{
+    text-align: justify;
+}
+
+.productos img{
+    display: block;
+    margin: auto;
+    width: 90%;
+}
+
 /**RESPONSIVE**/
 @media screen and (max-width:800px) {
     .fondo img{

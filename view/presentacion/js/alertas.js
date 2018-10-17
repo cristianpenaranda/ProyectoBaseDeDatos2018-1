@@ -6,7 +6,7 @@ function ingresoExitoso(titulo, mensaje) {
         icon: "success",
         button: "Continuar"
     });
-    location.reload();
+    setTimeout("location.reload()", 1000);
 }
 
 function exito(titulo, mensaje) {
@@ -25,6 +25,15 @@ function respuestaInfoEspera(mensaje) {
         closeOnClickOutside: false,
         closeOnEsc: false,
         icon: "info"
+    });
+}
+
+function advertencia(mensaje) {
+    swal({
+        title: "Advertencia",
+        text: mensaje,
+        icon: "warning",
+        button: "Continuar"
     });
 }
 

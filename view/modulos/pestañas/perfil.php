@@ -22,20 +22,19 @@
                         <span class="ion-person-stalker"></span> '.$tipo.'
                     </p>
                 </div>
-                <button class="btn btn-primary" href="" data-toggle="modal" data-target=".bd-example-modal-sm" id="modal"><span class="ion-loop"></span> Cambiar Contraseña</button>                
+                <button class="btn btn-block btn-color btn-xxl" href="" data-toggle="modal" data-target=".bd-example-modal-sm" id="modal" style="width:70%;display:block;margin:auto;"><span class="ion-loop"></span> Cambiar Contraseña</button>                
             </div>
         </div>
     </div>
 </div>
 
 <!--MODAL CAMBIAR CONTRAASEÑA-->
-<form class="modal fade bd-example-modal-sm modalContraseña" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="FormCambiarContraseña" method="POST">
+<form class=" modal fade bd-example-modal-sm modalContraseña" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="FormCambiarContraseña" method="POST">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Cambiar Contraseña </h5>
+                <h5 class="modal-title mt-3 mb-3" id="exampleModalCenterTitle" style="text-align: center;">Cambiar Contraseña </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
+                <hr style="margin-left: 0;width: 80%;border: 3px solid rgba(83,44,26,.95);border-radius: 100px /4px;box-shadow: 5px 5px 5px rgba(252,83,2,.9);display:block;margin:auto;">
             <div class="modal-body">
                 <div class="form-group input-group" style="color:black">
                     <div class="input-group-prepend">
@@ -50,12 +49,10 @@
                     </div>
                     <input type="password" maxlength="50"  class="form-control" placeholder="Contraseña Nueva" id="NuevaCambiarContraseña" name="NuevaCambiarContraseña" required>
                 </div>
-
-            </div>
-
-            <div class="modal-footer" style="display: block;margin: auto;">
-                <button type="submit" class="btn btn-primary" id="botonCambiarContraseña">Cambiar <span class="ion-loop"></span></button>
-            </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-block btn-color btn-xxl ml-5 mr-3" id="botonCambiarContraseña" style="width:50%;">Cambiar <span class="ion-loop"></span></button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="ion-close-round"></span> Cerrar</button></div>
+                </div>
         </div>
     </div>
 </form>'

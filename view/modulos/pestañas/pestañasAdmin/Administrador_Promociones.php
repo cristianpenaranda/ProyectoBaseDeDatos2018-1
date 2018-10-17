@@ -1,3 +1,16 @@
+<?php
+if (!isset($_SESSION["Tipo"])) {
+    $tipo = unserialize($_SESSION['Tipo']);
+    if ($tipo != "Administrador"){
+        header("Location:ErrorPage");
+    }
+}else{
+    $tipo = unserialize($_SESSION['Tipo']);
+    if ($tipo != "Administrador"){
+        header("Location:ErrorPage");
+    }
+}
+?>
 <div class="container">
     <div class="row">
 
@@ -23,7 +36,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text ion-android-list" for="registroDescripcionPromocion"></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Descripción" aria-label="apellido" aria-describedby="basic-addon1" name="registroDescripcionPromocion" id="registroDescripcionPromocion" required>
+                                <textarea rows="6" type="text" class="form-control" placeholder="Descripción" aria-label="apellido" aria-describedby="basic-addon1" name="registroDescripcionPromocion" id="registroDescripcionPromocion" required></textarea>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-block btn-color btn-xxl" id="botonRegistroPromocion"><span class="ion-plus-round"></span> Registrar Promoción</button>
@@ -42,7 +55,7 @@
                     <button type="submit" class="btn btn-block btn-color btn-xxl" id="botonListarPromociones" style="display: block;margin: auto;width: 50%;"><span class="ion-clipboard"></span> Ver Listado</button>
                     <div class="form-white" style="overflow:scroll;height:300px;">
                         <br>
-                        <table class="table" style="border: 3px solid rgba(83,44,26,.95);">
+                        <table class="table" style="border: 3px solid rgba(83,44,26,.95);" id="TablaPromocionPrincipal">
                             <thead style="border: 3px solid rgba(83,44,26,.95);background:#FD9444;">
                                 <tr>
                                     <th scope="col" style="text-align: center;">Título</th>                    
@@ -72,20 +85,21 @@
                     <label for="cedula">Título</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text ion-android-done-all" for="recuperarUsuario"></span>
+                            <span class="input-group-text ion-android-done-all"></span>
                         </div>
-                        <input type="text" class="form-control" id="recuperarUsuario" name="recuperarUsuario" disabled>
+                        <input type="text" class="form-control" id="ModalTituloPromocion" disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="cedula">Descripción</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text ion-android-list" for="recuperarUsuario"></span>
+                            <span class="input-group-text ion-android-list"></span>
                         </div>
-                        <input type="text" class="form-control" id="recuperarUsuario" name="recuperarUsuario" disabled>
+                        <textarea rows="6" type="text" class="form-control" id="ModalDescripcionPromocion" disabled></textarea>
                     </div>
                 </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="display:block;margin:auto;"><span class="ion-close-round"></span> Cerrar</button>
             </form>
         </div>
     </div>

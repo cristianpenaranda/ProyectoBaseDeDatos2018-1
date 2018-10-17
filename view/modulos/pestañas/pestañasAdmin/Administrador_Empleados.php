@@ -1,7 +1,20 @@
+<?php
+if (!isset($_SESSION["Tipo"])) {
+    $tipo = unserialize($_SESSION['Tipo']);
+    if ($tipo != "Administrador"){
+        header("Location:ErrorPage");
+    }
+}else{
+    $tipo = unserialize($_SESSION['Tipo']);
+    if ($tipo != "Administrador"){
+        header("Location:ErrorPage");
+    }
+}
+?>
 <div class="container" id="Administrador_Empleados">
-    <div class="row">
+    <div class="row mt-5">
         <!--REGISTRA NUEVO EMPLEADO--> 
-        <div class="col-md-6 mt-5 mb-5">
+        <div class="col-md-6 mb-5">
             <article id="article1">
                 <div class="col-md-12">
                     <h3 class="text-right-xs" style="text-align: center;">Ingresar Nuevo Empleado</h3>
@@ -72,7 +85,7 @@
         </div>
         
         <!--LISTA LOS EMPLEADOS--> 
-        <div class="col-md-6 mt-5 mb-5">
+        <div class="col-md-6 mb-5">
             <article id="article1">
                 <div class="col-md-12">
                     <h3 class="text-right-xs" style="text-align: center;">Listar los Empleados</h3>
@@ -94,6 +107,73 @@
                     </div>
                 </div>
             </article>
+        </div>
+    </div>
+</div>
+
+<!--MODAL INFORMACION DEL EMPLEADO-->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="VerInfoEmpleado">
+    <div class="modal-dialog">
+        <div class="modal-content" style="padding: 5%;">
+            <form id="FormInfoEmpleado" method="POST">
+                <h4 style="text-align: center;">Información del Empleado</h4>
+                <hr style="margin-left: 0;width: 100%;border: 3px solid rgba(83,44,26,.95);border-radius: 100px /4px;box-shadow: 5px 5px 5px rgba(252,83,2,.9);">
+                <div class="form-group">
+                    <label>Cédula</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ion-card"></span>
+                        </div>
+                        <input type="text" class="form-control" id="ModalCedulaEmpleado" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Nombres</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ion-person"></span>
+                        </div>
+                        <input type="text" class="form-control" id="ModalNombresEmpleado" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ion-person"></span>
+                        </div>
+                        <input type="text" class="form-control" id="ModalApellidosEmpleado" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ion-android-call"></span>
+                        </div>
+                        <input type="text" class="form-control" id="ModalTelefonoEmpleado" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Domicilio</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ion-location"></span>
+                        </div>
+                        <input type="text" class="form-control" id="ModalDomicilioEmpleado" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Correo</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ion-email"></span>
+                        </div>
+                        <input type="text" class="form-control" id="ModalCorreoEmpleado" disabled>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="display:block;margin:auto;"><span class="ion-close-round"></span> Cerrar</button>
+            </form>
         </div>
     </div>
 </div>

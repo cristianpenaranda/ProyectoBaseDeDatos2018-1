@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //$('#modalPrincipal').modal('show')
+    $('#modalPrincipal').modal('show');
     $.ajax({
 
         url: 'view/modulos/ajax.php?MostrarPromociones=true',

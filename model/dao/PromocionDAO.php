@@ -32,8 +32,8 @@ class PromocionDAO{
             $cadena ="";
             while($promo = $stm->fetch()){
              $cadena.= '<tr><td style="text-align: center;">'.$promo['nombre'].'</td>'
-                        . '<td style="text-align: center;"><button type="button" class="botones btn btn-outline-secondary ml-2" title="Ver Información" href="#VerInfoPromocion" data-toggle="modal"><span class="ion-eye"></span></button>'
-                        . '<button type="button" class="botones btn btn-outline-danger ml-2" title="Eliminar Empleado"><span class="ion-close-round"></span></button></td>'
+                        . '<td style="text-align: center;"><button type="button" class="ActionVer botones btn btn-outline-secondary ml-2" id="'.$promo['nombre'].'" title="Ver Información" href="#VerInfoPromocion" data-toggle="modal"><span class="ion-eye"></span></button>'
+                        . '<button type="button" class="ActionEliminar botones btn btn-outline-danger ml-2" title="Eliminar Empleado" id="'.$promo['nombre'].'"><span class="ion-close-round"></span></button></td>'
                         . '</tr>';
             }
 
@@ -66,5 +66,39 @@ class PromocionDAO{
         }
         return $cadena;
     }
+    
+    
+    //BUSCAR PROMOCION POR NOMBRE
+    function mostrarInfoPromocionDAO($titulo){
+        $conexion = Conexion::crearConexion();
+        try {
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stm = $conexion->prepare("SELECT nombre,descripcion FROM promociones WHERE nombre=?");
+            $stm->bindParam(1, $titulo, PDO::PARAM_STR);
+            $stm->execute();
+            $promo = $stm->fetch();
+            $respuesta = $promo['nombre'].'ª'.$promo['descripcion'];
+        } catch (Exception $ex) {
+            throw new Exception("Error al buscar promocion");
+        }
+        return $respuesta;
+    }
+    
+    //ELIMINAR PROMOCION 
+    function eliminarPromocionDAO($titulo){
+        $conexion = Conexion::crearConexion();
+        $exito = false;
+        try {           
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stm = $conexion->prepare("DELETE FROM promociones WHERE nombre=?");
+            $stm->bindParam(1, $titulo, PDO::PARAM_STR);
+            $exito = $stm->execute();
+        } catch (Exception $ex) {
+            throw new Exception("Error al eliminar la promocion");
+        }
+        return $exito;
+    }
+    
+    
     
 }

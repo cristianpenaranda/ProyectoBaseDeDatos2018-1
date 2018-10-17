@@ -50,8 +50,7 @@ class ClienteDAO{
             $cadena ="";
             while($personas = $stm->fetch()){
              $cadena.= '<tr><td style="text-align: center;">'.$personas['id_persona'].'</td>'
-                        . '<td style="text-align: center;"><button type="button" class="botones btn btn-outline-secondary ml-2" title="Ver Información"><span class="ion-eye"></span></button>'
-                        . '<button type="button" class="botones btn btn-outline-danger ml-2" title="Eliminar Empleado"><span class="ion-close-round"></span></button></td>'
+                        . '<td style="text-align: center;"><button id="'.$personas['id_persona'].'" type="button" class="ActionVerCliente botones btn btn-outline-secondary ml-2" title="Ver Información" href="#VerInfoCliente" data-toggle="modal"><span class="ion-eye"></span></button>'
                         . '</tr>';
             }
 

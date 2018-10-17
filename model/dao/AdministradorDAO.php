@@ -21,5 +21,19 @@ class AdministradorDAO{
         }
         return $exito;
     }
+
+    //BUSCAR LA CEDULA DEL ADMINISTRADOR EN LA BD
+    function buscarCedulaAdminDAO(){
+        $conexion = Conexion::crearConexion();
+        try {
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stm = $conexion->prepare("select id_persona from administrador");
+            $stm->execute();
+            $exito = $stm->fetch();            
+        } catch (Exception $ex) {
+            throw new Exception("Error al buscar la cedula del administrador en bd");
+        }
+        return $exito;
+    }
     
 }

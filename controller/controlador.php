@@ -36,6 +36,30 @@ class controlador{
         return $this->negocio->registrarProductoNegocio($producto);
     }
     
+    public function ListarProductosControlador(){
+        return $this->negocio->ListarProductosNegocio();
+    }  
+    
+    public function ListarProductosPanaderiaControlador(){
+        return $this->negocio->ListarProductosPanaderiaNegocio();
+    }  
+    
+    public function ListarProductosReposteriaControlador(){
+        return $this->negocio->ListarProductosReposteriaNegocio();
+    } 
+    
+    public function ListarProductosCompraPanaderiaControlador(){
+        return $this->negocio->ListarProductosCompraPanaderiaNegocio();
+    }  
+    
+    public function ListarProductosCompraReposteriaControlador(){
+        return $this->negocio->ListarProductosCompraReposteriaNegocio();
+    }    
+    
+    public function mostrarInfoProductoControlador($id){
+        return $this->negocio->mostrarInfoProductoNegocio($id);
+    }
+    
     public function registrarPromocionControlador($promocion){
         return $this->negocio->registrarPromocionNegocio($promocion);
     }
@@ -48,8 +72,36 @@ class controlador{
         return $this->negocio->MostrarPromocionesNegocio();
     }
     
+    public function EliminarPromocionControlador($titulo){
+        return $this->negocio->EliminarPromocionNegocio($titulo);
+    }
+    
+    public function mostrarInfoPromocionControlador($titulo){
+        return $this->negocio->mostrarInfoPromocionNegocio($titulo);
+    }
+    
+    public function mostrarInfoMensajeControlador($id){
+        return $this->negocio->mostrarInfoMensajeNegocio($id);
+    }
+    
     public function ListarClientesControlador(){
         return $this->negocio->ListarClientesNegocio();
+    }
+    
+    public function listarMensajesAdminControlador(){
+        return $this->negocio->listarMensajesAdminNegocio();
+    }
+    
+    public function EliminarEmpleadoControlador($usuario){
+        return $this->negocio->EliminarEmpleadoNegocio($usuario);
+    }
+    
+    public function EliminarPersonaControlador($usuario){
+        return $this->negocio->EliminarPersonaNegocio($usuario);
+    }
+    
+    public function eliminarProductoControlador($producto){
+        return $this->negocio->eliminarProductoNegocio($producto);
     }
     
     
@@ -73,6 +125,26 @@ class controlador{
         return $this->negocio->ListarEmpleadosNegocio();
     }
     
+    public function buscarClienteEmpleadoControlador($cliente){
+        return $this->negocio->buscarClienteEmpleadoNegocio($cliente);
+    }
+    
+    public function registroVentaEmpleadoControlador($salida){
+        return $this->negocio->registroVentaEmpleadoNegocio($salida);
+    }
+    
+    public function buscarUtlimaSalidaControlador(){
+        return $this->negocio->buscarUtlimaSalidaNegocio();
+    }
+    
+    public function ventaEmpleadoControlador($empleado, $idUltimo){
+        return $this->negocio->ventaEmpleadoNegocio($empleado, $idUltimo);
+    }
+    
+    public function ventaClienteControlador($idUltimo, $cliente, $estado){
+        return $this->negocio->ventaClienteNegocio($idUltimo, $cliente, $estado);
+    }
+    
     
     
     //METODOS PERSONA
@@ -94,6 +166,14 @@ class controlador{
     
     public function cambiarContraseñaControlador($usuario, $contraseña){
         return $this->negocio->cambiarContraseñaNegocio($usuario, $contraseña);
+    }
+    
+    public function buscarCedulaAdminControlador(){
+        return $this->negocio->buscarCedulaAdminNegocio();
+    }
+    
+    public function envioMensajeControlador($mensajeDTO){
+        return $this->negocio->envioMensajeNegocio($mensajeDTO);
     }
     
 

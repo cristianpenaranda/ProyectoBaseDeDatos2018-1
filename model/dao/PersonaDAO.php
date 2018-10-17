@@ -101,32 +101,19 @@ class PersonaDAO{
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    function verificarUsuario($usuario){
+    //ELIMINAR PERSONA 
+    function eliminarPersonaDAO($usuario){
         $conexion = Conexion::crearConexion();
-        try {
+        $exito = false;
+        try {           
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stm = $conexion->prepare("select nombre from persona where cedula=?");
+            $stm = $conexion->prepare("DELETE FROM persona WHERE id_persona=?");
             $stm->bindParam(1, $usuario, PDO::PARAM_STR);
-            $stm->execute();
-            $row = $stm->rowCount();
+            $exito = $stm->execute();
         } catch (Exception $ex) {
-            throw new Exception("Error al buscar el usuario en bd");
+            throw new Exception("Error al eliminar la persona");
         }
-        return $row;
+        return $exito;
     }
     
     

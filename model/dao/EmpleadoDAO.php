@@ -50,8 +50,8 @@ class EmpleadoDAO{
             $cadena ="";
             while($personas = $stm->fetch()){
              $cadena.= '<tr><td style="text-align: center;">'.$personas['id_persona'].'</td>'
-                        . '<td style="text-align: center;"><button type="button" class="botones btn btn-outline-secondary ml-2" title="Ver Información"><span class="ion-eye"></span></button>'
-                        . '<button type="button" class="botones btn btn-outline-danger ml-2" title="Eliminar Empleado"><span class="ion-close-round"></span></button></td>'
+                        . '<td style="text-align: center;"><button type="button" id="'.$personas['id_persona'].'" class="ActionVerEmpleado botones btn btn-outline-secondary ml-2" title="Ver Información" href="#VerInfoEmpleado" data-toggle="modal"><span class="ion-eye"></span></button>'
+                        . '<button type="button" id="'.$personas['id_persona'].'" class="ActionEliminarEmpleado botones btn btn-outline-danger ml-2" title="Eliminar Empleado"><span class="ion-close-round"></span></button></td>'
                         . '</tr>';
             }
 
@@ -59,6 +59,21 @@ class EmpleadoDAO{
             throw new Exception("Error al listar empleados");
         }
         return $cadena;
+    }
+    
+    //ELIMINAR EMPLEADO 
+    function eliminarEmpleadoDAO($usuario){
+        $conexion = Conexion::crearConexion();
+        $exito = false;
+        try {           
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stm = $conexion->prepare("DELETE FROM empleado WHERE id_persona=?");
+            $stm->bindParam(1, $usuario, PDO::PARAM_STR);
+            $exito = $stm->execute();
+        } catch (Exception $ex) {
+            throw new Exception("Error al eliminar el empleado");
+        }
+        return $exito;
     }
     
     
